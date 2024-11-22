@@ -44,6 +44,14 @@ class ViewController: UIViewController {
         label.textColor = UIColor(named: "primaryColor")
         return label
     }()
+    
+    private lazy var weatherIcon: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "sunIcon")
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints =  false
+        return imageView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +68,8 @@ class ViewController: UIViewController {
         view.addSubview(headerView)
         
         headerView.addSubview(citylabel)
+        headerView.addSubview(temperatureLabel)
+        headerView.addSubview(weatherIcon)
     }
     
     private func setConstraints() {
@@ -80,8 +90,18 @@ class ViewController: UIViewController {
         NSLayoutConstraint.activate([
             citylabel.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 15),
             citylabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 15),
-            citylabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -15)
+            citylabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -15),
+            citylabel.heightAnchor.constraint(equalToConstant: 20),
+            temperatureLabel.topAnchor.constraint(equalTo: citylabel.bottomAnchor, constant: 21),
+            temperatureLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 26),
+            weatherIcon.heightAnchor.constraint(equalToConstant: 86),
+            weatherIcon.widthAnchor.constraint(equalToConstant: 86),
+            weatherIcon.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -26),
+            weatherIcon.centerYAnchor.constraint(equalTo: temperatureLabel.centerYAnchor),
+            weatherIcon.leadingAnchor.constraint(equalTo: temperatureLabel.trailingAnchor, constant: 15)
         ])
+        
+        
     }
     
     
