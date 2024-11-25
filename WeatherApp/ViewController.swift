@@ -102,6 +102,18 @@ class ViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
+    
+    private lazy var statsStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [humidityStackView, windStackView])
+        stackView.axis = .vertical
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.spacing = 3
+        stackView.backgroundColor = UIColor(named: "softGray")
+        stackView.layer.cornerRadius = 10
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 12, leading: 24, bottom: 12, trailing: 24)
+        return stackView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,7 +128,7 @@ class ViewController: UIViewController {
     private func setHierarchy() {
         view.addSubview(backgroundView)
         view.addSubview(headerView)
-        view.addSubview(humidityStackView)
+        view.addSubview(statsStackView)
         
         headerView.addSubview(citylabel)
         headerView.addSubview(temperatureLabel)
@@ -153,9 +165,9 @@ class ViewController: UIViewController {
         ])
         
         NSLayoutConstraint.activate([
-            humidityStackView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 24),
-            humidityStackView.widthAnchor.constraint(equalToConstant: 206),
-            humidityStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            statsStackView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 24),
+            statsStackView.widthAnchor.constraint(equalToConstant: 206),
+            statsStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
         
