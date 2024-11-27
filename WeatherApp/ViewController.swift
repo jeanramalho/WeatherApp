@@ -233,7 +233,7 @@ class ViewController: UIViewController {
             dailyForecastLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 35),
             dailyForecastLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -35),
             
-            dailyForecastTableView.topAnchor.constraint(equalTo: dailyForecastLabel.bottomAnchor, constant: 30),
+            dailyForecastTableView.topAnchor.constraint(equalTo: dailyForecastLabel.bottomAnchor, constant: 16),
             dailyForecastTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             dailyForecastTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             dailyForecastTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
