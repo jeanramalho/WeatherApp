@@ -5,7 +5,6 @@
 //  Created by Jean Ramalho on 28/11/24.
 //
 
-
 import Foundation
 
 struct City {

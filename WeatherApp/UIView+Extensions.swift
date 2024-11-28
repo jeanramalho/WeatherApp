@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension UIView {
-    func setConstraintsToParent(_ parent: UIView){
+    func setConstraintsToParent(_ parent: UIView) {
         NSLayoutConstraint.activate([
             self.topAnchor.constraint(equalTo: parent.topAnchor),
             self.leadingAnchor.constraint(equalTo: parent.leadingAnchor),
