@@ -53,31 +53,34 @@ class HourlyForecastCollectionViewCell: UICollectionViewCell {
     }()
     
     override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupView()
+            super.init(frame: frame)
+            setupView()
+        }
+        
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+        
+        func loadData(time: String?, icon: UIImage?, temp: String?) {
+            hourLabel.text = time
+            iconImageView.image = icon
+            temperatureLabel.text = temp
+        }
+        
+        private func setupView() {
+            setHierarchy()
+            setConstraints()
+        }
+        
+        private func setHierarchy() {
+            contentView.addSubview(stackView)
+        }
+        
+        private func setConstraints() {
+            stackView.setConstraintsToParent(contentView)
+            
+            NSLayoutConstraint.activate([
+                iconImageView.heightAnchor.constraint(equalToConstant: 33)
+            ])
+        }
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setupView(){
-        setHierarchy()
-        setConstraints()
-    }
-    
-    private func setHierarchy(){
-        contentView.addSubview(stackView)
-    }
-    
-    private func setConstraints(){
-        NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            iconImageView.heightAnchor.constraint(equalToConstant: 33)
-        ])
-    }
-    
-}

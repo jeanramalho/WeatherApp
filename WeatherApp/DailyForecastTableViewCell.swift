@@ -57,30 +57,38 @@ class DailyForecastTableViewCell: UITableViewCell {
     }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupView()
+            super.init(style: style, reuseIdentifier: reuseIdentifier)
+            setupView()
+        }
+        
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+        
+        func loadData(weekDay: String?, min: String?, max: String?, icon: UIImage?) {
+            weekDayLabel.text = weekDay
+            minTemperatureLabel.text = "min \(min ?? "")"
+            maxTemperatureLabel.text = "max \(max ?? "")"
+            iconImageView.image = icon
+        }
+        
+        private func setupView() {
+            backgroundColor = .clear
+            selectionStyle = .none
+            
+            setHierarchy()
+            setConstraints()
+        }
+        
+        private func setHierarchy() {
+            contentView.addSubview(stackView)
+            
+            NSLayoutConstraint.activate([
+                weekDayLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 50)
+            ])
+        }
+        
+        private func setConstraints() {
+            stackView.setConstraintsToParent(contentView)
+        }
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setupView(){
-        backgroundColor = .clear
-        selectionStyle = .none
-        setHierarchy()
-        setConstraints()
-    }
-    
-    private func setHierarchy(){
-        contentView.addSubview(stackView)
-    }
-    
-    private func setConstraints(){
-        stackView.setConstraintsToParent(contentView)
-        NSLayoutConstraint.activate([
-            weekDayLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 50)
-        ])
-    }
-    
-}
