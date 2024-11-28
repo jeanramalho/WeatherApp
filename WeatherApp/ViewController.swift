@@ -29,7 +29,6 @@ class ViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font =  UIFont.systemFont(ofSize: 20)
-        label.text = "São Paulo"
         label.textAlignment =  .center
         label.textColor = UIColor.primaryColor
         return label
@@ -39,7 +38,6 @@ class ViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font =  UIFont.systemFont(ofSize: 70, weight: .bold)
-        label.text = "25°C"
         label.textAlignment =  .left
         label.textColor = UIColor.primaryColor
         return label
@@ -65,7 +63,6 @@ class ViewController: UIViewController {
     private lazy var humidityValueLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "1000mm"
         label.font =  UIFont.systemFont(ofSize: 12, weight: .semibold)
         label.textColor = UIColor.contrastColor
         return label
@@ -90,7 +87,6 @@ class ViewController: UIViewController {
     private lazy var windValueLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "10km/h"
         label.font =  UIFont.systemFont(ofSize: 12, weight: .semibold)
         label.textColor = UIColor.contrastColor
         return label
